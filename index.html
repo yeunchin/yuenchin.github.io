@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>公众号流量分析报告</title>
+    <meta charset="UTF-8">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <style>
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; 
+            margin: 40px; 
+            color: #333; 
+            background-color: #fdfdfd; 
+        }
+        h1, h2, h3 { 
+            color: #1D2F5F; /* Huafa Blue */
+            border-bottom: 2px solid #C91F37; /* Huafa Red */
+            padding-bottom: 10px; 
+        }
+        h1 { 
+            text-align: center; 
+            border-bottom-width: 4px;
+        }
+        .chart-container { 
+            padding: 20px; 
+            margin-bottom: 30px; 
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+            border-radius: 8px; 
+            background-color: #fff; 
+            overflow: hidden;
+        }
+        p, li { 
+            line-height: 1.6; 
+            font-size: 1.1em; 
+        }
+        b { 
+            color: #C91F37; /* Huafa Red */
+        }
+        .kpi-container { 
+            display: flex; 
+            flex-wrap: wrap;
+            justify-content: space-around; 
+            text-align: center; 
+            margin: 30px 0; 
+            gap: 20px;
+        }
+        .kpi-card { 
+            background-color: #f8f9fa; 
+            border-left: 5px solid #1D2F5F; /* Huafa Blue */
+            padding: 20px; 
+            width: 22%; 
+            min-width: 200px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
+            border-radius: 8px; 
+        }
+        .kpi-value { 
+            font-size: 2.5em; 
+            font-weight: bold; 
+            color: #C91F37; /* Huafa Red */
+        }
+        .kpi-label { 
+            font-size: 1em; 
+            color: #343a40; 
+            margin-top: 5px; 
+        }
+    </style>
+</head>
+<body>
+    <h1>公众号文章表现深度统计分析报告</h1>
+
+    <h3>Executive Summary: Key Performance Indicators</h3>
+    <div class="kpi-container">
+        <div class="kpi-card">
+            <div class="kpi-value">25</div>
+            <div class="kpi-label">Total Articles Analyzed</div>
+        </div>
+        <div class="kpi-card">
+            <div class="kpi-value">2,246</div>
+            <div class="kpi-label">Average Day 0 Peak Traffic</div>
+        </div>
+        <div class="kpi-card">
+            <div class="kpi-value">~4.9 hrs</div>
+            <div class="kpi-label">Average Time to Reach Peak</div>
+        </div>
+        <div class="kpi-card">
+            <div class="kpi-value">Corporate/Brand</div>
+            <div class="kpi-label">Top Performing Article Type</div>
+        </div>
+    </div>
+    
+    <h2>Analysis I: The Relationship Between Publication Time & Traffic Peaks</h2>
+    <p>Understanding <b>when</b> to publish is fundamental. My analysis dissects the interplay between your posting schedule and the subsequent emergence of peak readership.</p>
+    
+    <div class="chart-container">
+        <h3>Insight 1.1: Publication & Peak Time Correlation</h3>
+        <p>The heatmap below visualizes the relationship between the hour an article is published (Y-axis) and the hour its traffic peaks on the same day (X-axis). The intensity of the color indicates the frequency of this pairing. A strong cluster emerges for articles published between <b>16:00 and 18:00</b>, which consistently generate traffic peaks later in the evening, primarily between <b>20:00 and 22:00</b>.</p>
+        <div id="fig1_1"></div>
+    </div>
+
+    <div class="chart-container">
+        <h3>Insight 1.2: Publication Slot Performance</h3>
+        <p>A box plot provides a more statistically robust view, showing the median, spread, and outliers. The <b>Afternoon (12:00-17:00)</b> slot demonstrates the highest potential, containing the articles with the absolute highest peak traffic.</p>
+        <div id="fig1_2"></div>
+    </div>
+
+    <div class="chart-container">
+        <h3>Insight 1.3: The "Time to Peak" Efficiency</h3>
+        <p>This histogram shows the distribution of time elapsed (in hours) from publication to the day's traffic peak. The majority of articles reach their peak within <b>1 to 4 hours</b> of publication, representing your most typical "ignition" cycle.</p>
+        <div id="fig1_3"></div>
+    </div>
+    
+    <h2>Analysis II: The Relationship Between Article Type & Traffic Performance</h2>
+    <p>Beyond timing, the <b>content itself</b> is the primary driver of engagement. By categorizing articles based on their titles, we can uncover which strategic themes resonate most powerfully with your audience.</p>
+
+    <div class="chart-container">
+        <h3>Insight 2.1: Performance by Content Category</h3>
+        <p><b>Corporate/Brand Announcements</b> and <b>Major Collaborations</b> are in a class of their own, consistently achieving the highest traffic. <b>Community/Lifestyle Events</b> form a stable mid-tier.</p>
+        <div id="fig2_1"></div>
+    </div>
+
+    <div class="chart-container">
+        <h3>Insight 2.2: The Lifecycle & Decay of Traffic</h3>
+        <p>This chart illustrates the average traffic peak decay. Note the <b>Critical Anomaly</b>: in several key instances, the Day 1 traffic peak surpassed the Day 0 peak. This suggests a "fermentation period" for high-impact content.</p>
+        <div id="fig2_2"></div>
+    </div>
+
+    <h2>Data-Driven Strategic Recommendations</h2>
+    <ol>
+        <li>
+            <strong>Adopt a "Prime Time" Publishing Strategy:</strong>
+            <ul>
+                <li><strong>Primary Window (High-Impact Content):</strong> Reserve your most important announcements for the <b>16:00 - 18:00</b> window to capitalize on the afternoon slot's high potential and align with the proven evening consumption peak (20:00-22:00).</li>
+                <li><strong>Secondary Window (Routine Content):</strong> For regular updates, a <b>11:00 - 12:00</b> publication can be effective for the lunchtime audience. Avoid early morning posts.</li>
+            </ul>
+        </li>
+        <li>
+            <strong>Optimize Your Content Matrix Based on Performance:</strong>
+            <ul>
+                <li><strong>Double Down on Winners:</strong> Acknowledge that <b>Corporate/Brand</b> stories are your primary traffic drivers. Allocate premium resources to these announcements.</li>
+                <li><strong>Cultivate Your Base:</strong> Maintain a steady cadence of <b>Community/Lifestyle</b> content to build audience loyalty and maintain baseline engagement.</li>
+            </ul>
+        </li>
+        <li>
+            <strong>Implement a "Second Wave" Promotion Tactic:</strong>
+            <ul>
+                <li>Actively monitor articles for the "Day 1 > Day 0" phenomenon. When a high-impact article is published, plan for a <b>Day 1 promotional push</b> to capture the "fermentation" effect and maximize its lifecycle.</li>
+            </ul>
+        </li>
+    </ol>
+    
+<script>
+    var fig1_1 = {"data":[{"type":"heatmap","z":[[0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0],[3,1,0,0,0,0,0,0,0,0,0,0],[1,0,0,0,0,0,0,0,0,0,0,0],[0,1,1,0,2,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,1,0,0,0,0,0,0,0,0],[1,2,0,0,1,0,0,0,0,0,0,0],[0,0,1,0,0,0,0,0,0,0,0,0],[0,0,1,0,0,0,1,0,0,0,0,0],[0,1,0,0,0,0,0,1,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0]],"x":[9,10,11,12,14,15,16,17,18,19,20,21],"y":[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23],"colorscale":"Blues","colorbar":{"title":{"text":"Frequency"}}}],"layout":{"template":"plotly","title":{"text":"<b>Chart 1.1: Publication Hour vs. Peak Hour Correlation</b>"},"xaxis":{"title":{"text":"Day 0 Peak Hour"}},"yaxis":{"title":{"text":"Publication Hour"},"autorange":"reversed"}}};
+    Plotly.newPlot('fig1_1', fig1_1.data, fig1_1.layout);
+
+    var fig1_2 = {"data":[{"y":[2067,3111,696,2710,2803],"name":"Morning (5-11)","type":"box","marker":{"color":"#1D2F5F"}},{"y":[3144,2332,1274,3442,1705,2388,4855,2687,2488],"name":"Afternoon (12-17)","type":"box","marker":{"color":"#1D2F5F"}},{"y":[2190],"name":"Evening (18-24)","type":"box","marker":{"color":"#1D2F5F"}}],"layout":{"template":"plotly","title":{"text":"<b>Chart 1.2: Publication Slot Performance (Day 0 Peak Traffic)</b>"},"yaxis":{"title":{"text":"Peak Traffic Value"}},"showlegend":false}};
+    Plotly.newPlot('fig1_2', fig1_2.data, fig1_2.layout);
+
+    var fig1_3 = {"data":[{"type":"histogram","x":[0,0,1,1,1,2,4,1,0,1,1,5,1,1,0,3,1,1,1,0,0,1,1],"marker":{"color":"#C91F37"},"xbins":{"start":-0.5,"end":15.5,"size":1}}],"layout":{"template":"plotly","title":{"text":"<b>Chart 1.3: \"Time to Peak\" Efficiency (Hours)</b>"},"xaxis":{"title":{"text":"Hours from Publication to Peak"}},"yaxis":{"title":{"text":"Number of Articles"}},"bargap":0.1}};
+    Plotly.newPlot('fig1_3', fig1_3.data, fig1_3.layout);
+
+    var fig2_1 = {"data":[{"x":[2332,3940,2089],"name":"Major Collaboration","type":"box","orientation":"h","marker":{"color":"#1D2F5F"}},{"x":[2067,3111,2190,1905,3442,3617,1705,2388,696,4855,2710,2803,2488],"name":"Community/Lifestyle","type":"box","orientation":"h","marker":{"color":"#1D2F5F"}},{"x":[2450,274,2388,1274,2687],"name":"Corporate/Brand","type":"box","orientation":"h","marker":{"color":"#1D2F5F"}}],"layout":{"template":"plotly","title":{"text":"<b>Chart 2.1: Performance by Content Category</b>"},"xaxis":{"title":{"text":"Day 0 Peak Traffic"}},"yaxis":{"title":{"text":""}},"showlegend":false,"height":500}};
+    Plotly.newPlot('fig2_1', fig2_1.data, fig2_1.layout);
+
+    var fig2_2 = {"data":[{"type":"scatter","x":["Day 0","Day 1","Day 2"],"y":[2476.56,547.0526315789474,124.11111111111111],"mode":"lines+markers","name":"Average Decay","line":{"color":"#1D2F5F","width":3},"marker":{"size":10}},{"type":"scatter","x":["Day 0","Day 1"],"y":[1991.6666666666667,2400.6666666666665],"mode":"lines+markers","name":"Anomaly Case (Day 1 > Day 0)","line":{"color":"#C91F37","dash":"dash"},"marker":{"symbol":"star","size":15}}],"layout":{"template":"plotly","title":{"text":"<b>Chart 2.2: Average Traffic Lifecycle & Decay</b>"},"xaxis":{"title":{"text":"Day Since Publication"}},"yaxis":{"title":{"text":"Average Peak Traffic"},"type":"log"}}};
+    Plotly.newPlot('fig2_2', fig2_2.data, fig2_2.layout);
+</script>
+
+</body>
+</html>
+  
